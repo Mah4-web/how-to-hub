@@ -45,8 +45,8 @@ Deploy on Vercel — set env variables on Vercel dashboard
 
 - **📂 App**
 - 📂 lib - *queries.sql*
-- 📂 posts - *page.js*
--  📂 [postId] - *page.js* - **📂 comments** - 📂 [commentId] - *page.js*
+- 📂 blogs - *page.js*
+-  📂 [blogId] - *page.js* - **📂 comments** - 📂 [commentId] - *page.js*
 NOTE: in commentId I will give user to edit comment since I am not letting user to post posts. (stretch goal)
 
 -**📂 Components**
@@ -65,9 +65,9 @@ set up our database pool using the pg package (install it, please)
 
 ## Step 7: Setup Next.js
 
-- /posts — show all posts, sortable
-- /posts/[id] — show one post + comments
-- / — redirect to /posts and comment
+- /blogs — show all posts, sortable
+- /blogs/[id] — show one post + comments
+- / — redirect to /blogs and comment
 
 ## Step 8: Build Components
 
@@ -79,9 +79,9 @@ set up our database pool using the pg package (install it, please)
 
 ## Step 9: Fetch
 
-- Fetch all posts
-- Fetch post details and comments for /posts/[id]
-- Insert new comments from form, associated to correct post_id
+- Fetch all blogs
+- Fetch blog details and comments for /blogs/[id]
+- Insert new comments from form, associated to correct blog_id
 - Delete comments by comment id
 - (Stretch) Confirm deletion before removing
 
