@@ -11,13 +11,13 @@ export default function Header() {
         <nav className="flex space-x-6">
         <Link
             href="/"
-            className="text-lg font-medium text-indigo-600 hover:text-[#f7f0ff] transition-colors"
+            className="text-lg font-medium text-indigo-600 hover:bg-purple-300 hover:text-black transition-colors"
         >
             Home
         </Link>
         <Link
             href="/posts"
-            className="text-lg font-medium text-indigo-600 hover:text-[#f7f0ff] transition-colors"
+            className="text-lg font-medium text-indigo-600 hover:bg-purple-300 hover:text-black transition-colors"
         >
             Posts
         </Link>
