@@ -1,14 +1,16 @@
 import Image from "next/image";
 import { db } from "@/utils/dbConnection";
-import Form from "@/Components/Form";
-import CommentList from "@/Components/CommentList";
-import DeleteButton from "@/Components/DeleteButton";
+import Form from "@/app/Components/Form";
+import CommentList from "@/app/Components/CommentList";
+import DeleteButton from "@/app/Components/DeleteButton";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 // handle deleting post
-async function handleDeletePost(postId) {
+async function handleDeletePost(formData) {
     "use server";
+    const postId = formData.get("postId");
+    if (!postId) return;
     await db.query("DELETE FROM articles WHERE id = $1", [postId]);
     revalidatePath("/posts");
     redirect("/posts");
