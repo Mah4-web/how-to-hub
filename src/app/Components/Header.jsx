@@ -22,7 +22,10 @@ export default function Header() {
         >
             Posts
         </Link>
-       
+        <Link href="/posts/new" 
+        className="text-lg font-medium text-indigo-600 hover:bg-purple-300 hover:text-black transition-colors"
+        >Add New Post</Link>
+
         </nav>
     </header>
     );
