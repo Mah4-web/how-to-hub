@@ -15,12 +15,14 @@ export default function Header() {
         >
             Home
         </Link>
+
         <Link
             href="/posts"
             className="text-lg font-medium text-indigo-600 hover:bg-purple-300 hover:text-black transition-colors"
         >
             Posts
         </Link>
+       
         </nav>
     </header>
     );
