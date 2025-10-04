@@ -1,5 +1,5 @@
 import { db } from "@/utils/dbConnection";
-import PostCard from "../components/PostCard";
+import PostCard from "../Components/PostCard";
 import Styles from "./posts.module.css";
 
 export default async function PostsPage({ searchParams }) {
@@ -19,20 +19,19 @@ export default async function PostsPage({ searchParams }) {
   // Sort posts by post_title asc or desc 
     if (query.sort === "asc") {
     posts.sort((a, b) => {
-        return a.post_title.localeCompare(b.post_title);
+        return a.title.localeCompare(b.title);
     });
     } else if (query.sort === "desc") {
     posts.sort((a, b) => {
-        return b.post_title.localeCompare(a.post_title);
+        return b.title.localeCompare(a.title);
     });
     }
 
     return (
     <>
-        <h1 className={Styles.h1}>Posts</h1>
-
+        <h1 className="text-5xl font-bold text-center mb-6 underline bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">Posts</h1>
         <section className={Styles.postFilters}>
-        <p>Sort:</p>
+       {/* SORT */}
         <a href="/posts?sort=asc"
         className="text-indigo-600 font-bold hover:bg-purple-300 hover:text-black"
         >Sort alphabetical A-Z
