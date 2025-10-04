@@ -71,9 +71,10 @@ export default async function PostDetailPage({ params }) {
         </section>
 
         <section>
-            
+
     <h2>Leave a Comment</h2>
-    <Form postId={postId} onSubmitAction={(formData) => handleAddComment(formData, postId)} />
+    <Form postId={postId} 
+    onSubmitAction={(formData) => handleAddComment(formData, postId)} />
     
     <h2>Comments</h2>
     <CommentList comments={comments} postId={postId} />

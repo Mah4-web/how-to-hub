@@ -1,3 +1,6 @@
+//TODO: render a list of posts
+//TODO: set up a sorting filter (searchParams)
+
 import { db } from "@/utils/dbConnection";
 import PostCard from "../Components/PostCard";
 import Styles from "./posts.module.css";
@@ -6,9 +9,10 @@ export default async function PostsPage({ searchParams }) {
     const query = await searchParams;
     const filter = query.filter;
 
-// I wanted to do SELECT title.... from posts but I am doing it for less headache
+// I wanted to do SELECT title.... from posts but I am doing it for less headache 
+// my db is articles for posts
 
-    const response = await db.query("SELECT * FROM blogs");
+    const response = await db.query("SELECT * FROM articles");
     let posts = response.rows;
 
   // Filter by topic
