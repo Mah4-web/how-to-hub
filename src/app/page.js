@@ -7,7 +7,7 @@ export default function Home() {
     Learn, Create, Share
   </div>
       <h1 className="text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
-        Welcome to How-To Hub
+        Welcome to The How-To Hub
       </h1>
       <p className="mt-4 text-gray-700">
         Your ultimate destination for step-by-step tutorials, practical guides, and expert tips. 
