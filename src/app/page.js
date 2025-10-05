@@ -6,7 +6,7 @@ export default function Home() {
       <div className="mb-4 bg-indigo-100 text-indigo-600 rounded-full px-6 py-2 font-semibold uppercase tracking-wide">
     Learn, Create, Share
   </div>
-      <h1 className="text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
+      <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
         Welcome to The How-To Hub
       </h1>
       <p className="mt-4 text-gray-700">

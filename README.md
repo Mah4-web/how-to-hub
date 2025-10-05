@@ -205,3 +205,4 @@ Notes: My initial planning is in Planning.md
 - [Delete Cascade](https://www.youtube.com/watch?v=vANfY96ccOY)
 - [Images](https://nextjs.org/docs/pages/api-reference/components/image)
 - [Colour combination and gradient](https://color.adobe.com/create/image-gradient)
+- [Tailwind Responsive font](https://v3.tailwindcss.com/docs/screens)
