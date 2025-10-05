@@ -29,8 +29,7 @@ export const metadata = {
     title: "How-To-Hub",
     description: "A Next.js blog for sharing mini how-to guides with dynamic post sorting and a comments form allowing users to add and delete comments.",
     type: "website",
-    url: "",
-    images: ["https://next-comments-postgres.vercel.app/og-image.png"], // add an appropriate image to your public folder - need to be in an array
+    "url": "https://how-to-hub.vercel.app/",
   },
 };
 

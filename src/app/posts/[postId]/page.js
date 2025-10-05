@@ -1,5 +1,5 @@
 // src/app/posts/[postId]/page.js
-
+import Link from "next/link";
 import Image from "next/image";
 import { db } from "@/utils/dbConnection";
 import Form from "@/app/Components/Form";
@@ -24,7 +24,7 @@ async function handleAddComment(formData) {
 }
 
 export default async function PostDetailPage({ params }) {
-  const { postId } = await params;  // <-- MUST await here
+  const { postId } = await params;  // <-- MUST await here, I did so many things but got errors
 
   const postRes = await db.query("SELECT * FROM articles WHERE id = $1", [postId]);
   const post = postRes.rows[0];
@@ -59,10 +59,16 @@ export default async function PostDetailPage({ params }) {
           <p className="text-lg mb-4 text-center">{post.description}</p>
         )}
 
-        <article className="prose prose-lg max-w-none mb-10">{post.content}</article>
+        <article className="max-w-full mb-10 text-base leading-relaxed">{post.content}</article>
 
-        {/* Use your client-side delete button only */}
+    
         <ConfirmDeletePostButton postId={postId} />
+        <Link
+        href={`/posts/${postId}/edit`}
+        className="text-medium bg-indigo-200 text-black underline hover:text-blue-800 block mt-2"
+        >
+        ✏️ Edit Post
+      </Link>
       </section>
 
       <section className="mt-10">
