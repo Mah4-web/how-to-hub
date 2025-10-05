@@ -9,8 +9,8 @@ const playfair = Playfair_Display({
 });
 
 import "./globals.css";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
+import Header from "@/app/Components/Header";
+import Footer from "@/app/Components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
