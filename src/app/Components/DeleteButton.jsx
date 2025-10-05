@@ -19,5 +19,7 @@ export default function DeleteButton({ commentId, postId }) {
     }
     }
 
-    return <button onClick={handleDelete}>🗑️ Delete</button>;
+    return <button onClick={handleDelete}   
+    className="bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 text-black font-semibold py-1 px-3 rounded transition duration-150">
+        🗑️ Delete</button>;
 }

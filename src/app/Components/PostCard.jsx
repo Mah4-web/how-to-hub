@@ -23,7 +23,7 @@ export default function PostCard({ post }) {
         )}
 
         <h2 className="text-2xl font-semibold mb-1">
-        <Link href={`/articles/${post.id}`} className="hover:underline">
+        <Link href={`/posts/${post.id}`} className="hover:underline">
             {post.title}
         </Link>
         </h2>

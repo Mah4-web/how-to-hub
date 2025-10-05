@@ -99,3 +99,8 @@ set up our database pool using the pg package (install it, please)
 - Test edit comment (stretch)
 
 ## Step 12: Reflection
+
+---
+## MORE FOLDERS AND FILES
+
+I added few more files for category and posts delete.

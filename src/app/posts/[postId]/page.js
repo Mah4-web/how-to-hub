@@ -1,87 +1,79 @@
+// src/app/posts/[postId]/page.js
+
 import Image from "next/image";
 import { db } from "@/utils/dbConnection";
 import Form from "@/app/Components/Form";
 import CommentList from "@/app/Components/CommentList";
-import DeleteButton from "@/app/Components/DeleteButton";
+import ConfirmDeletePostButton from "@/app/Components/ConfirmDeletePostButton";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-// handle deleting post
-async function handleDeletePost(formData) {
-    "use server";
-    const postId = formData.get("postId");
-    if (!postId) return;
-    await db.query("DELETE FROM articles WHERE id = $1", [postId]);
-    revalidatePath("/posts");
-    redirect("/posts");
-}
-
-// handle deleting comment
-async function handleAddComment(formData, postId) {
-    "use server";
-    const name = formData.get("name");
-    const comment = formData.get("comment");
-    if (!name || !comment) return;
-    await db.query(
+// Server action to add a comment
+async function handleAddComment(formData) {
+  "use server";
+  const name = formData.get("name");
+  const comment = formData.get("comment");
+  const postId = formData.get("postId");
+  if (!name || !comment || !postId) return;
+  await db.query(
     `INSERT INTO reviews (name, comment, article_id) VALUES ($1, $2, $3)`,
     [name, comment, postId]
-    );
-    revalidatePath(`/posts/${postId}`);
-    redirect(`/posts/${postId}`);
+  );
+  revalidatePath(`/posts/${postId}`);
+  redirect(`/posts/${postId}`);
 }
 
 export default async function PostDetailPage({ params }) {
-    const postId = params.postId;
-    const postResponse = await db.query("SELECT * FROM articles WHERE id = $1", [postId]);
-    const post = postResponse.rows[0];
-    if (!post) {
-    return <p>Post not found.</p>;
-    }
+  const { postId } = await params;  // <-- MUST await here
 
-    const commentsResponse = await db.query("SELECT * FROM reviews WHERE article_id = $1 ORDER BY id DESC", [postId]);
-    const comments = commentsResponse.rows;
+  const postRes = await db.query("SELECT * FROM articles WHERE id = $1", [postId]);
+  const post = postRes.rows[0];
+  if (!post) {
+    return <p>Post not found</p>;
+  }
 
-    return (
-    <main>
-{/* rendering individual post */}
-        <section>
-        <h1>{post.title}</h1>
+  const commentsRes = await db.query(
+    "SELECT * FROM reviews WHERE article_id = $1 ORDER BY id DESC",
+    [postId]
+  );
+  const comments = commentsRes.rows;
+
+  return (
+    <main className="max-w-3xl mx-auto my-8 p-4">
+      <section>
+        <h1 className="text-4xl font-bold mb-4 text-center">{post.title}</h1>
+
         {post.image_url && (
+          <div className="flex justify-center mb-6">
             <Image
-            src={post.image_url}
-            alt={post.title}
-            width={800}      // Adjust width as needed
-            height={400}     // Adjust height as needed
+              src={post.image_url}
+              alt={post.title}
+              width={800}
+              height={400}
+              style={{ objectFit: "contain" }}
             />
+          </div>
         )}
 
-        {/* delete */}
-        {post.description && <p>{post.description}</p>}
-        <div>{post.content}</div>
-        <form action={() => handleDeletePost(postId)}>
-            <button
-            type="submit"
-            onClick={(e) => {
-                if (!confirm("Are you sure you want to delete this post?")) {
-                e.preventDefault();
-                }
-            }}
-            >
-            Delete Post 🗑️
-            </button>
-            </form>
-        </section>
+        {post.description && (
+          <p className="text-lg mb-4 text-center">{post.description}</p>
+        )}
 
-        <section>
+        <article className="prose prose-lg max-w-none mb-10">{post.content}</article>
 
-    <h2>Leave a Comment</h2>
-    <Form postId={postId} 
-    onSubmitAction={(formData) => handleAddComment(formData, postId)} />
-    
-    <h2>Comments</h2>
-    <CommentList comments={comments} postId={postId} />
-</section>
+        {/* Use your client-side delete button only */}
+        <ConfirmDeletePostButton postId={postId} />
+      </section>
 
+      <section className="mt-10">
+        <h2 className="text-2xl font-semibold mb-4 text-center">Leave a Comment</h2>
+        <Form postId={postId} onSubmitAction={handleAddComment} />
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold mb-4 text-center">Comments</h2>
+        <CommentList comments={comments} postId={postId} />
+      </section>
     </main>
-    );
+  );
 }

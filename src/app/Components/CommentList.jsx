@@ -8,14 +8,21 @@ export default function CommentList({ comments, postId }) {
     }
 
     return (
-    <ul>
-        {comments.map((comment) => (
-        <li key={comment.id}>
-            <strong>{comment.name}</strong>
-            <p>{comment.comment}</p>
-            <DeleteButton commentId={comment.id} postId={postId} />
+      <ul className="max-w-2xl mx-auto space-y-6 text-center">
+      {comments.map((comment) => (
+        <li
+          key={comment.id}
+          className="border rounded-lg p-4 shadow-sm"
+        >
+          <strong className="block mb-2 text-lg">{comment.name}</strong>
+          <p className="mb-3">{comment.comment}</p>
+          <DeleteButton
+            commentId={comment.id}
+            postId={postId}
+            className="bg-red-600 hover:bg-red-700 text-black px-3 py-1 rounded"
+          />
         </li>
-        ))}
+      ))}
     </ul>
-    );
+  );
 }

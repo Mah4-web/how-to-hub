@@ -1,7 +1,16 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],  
+  style: ['normal'],      
+  variable: '--font-playfair',  
+});
+
 import "./globals.css";
-import Header from "@/app/Components/Header";
-import Footer from "@/app/Components/Footer";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
