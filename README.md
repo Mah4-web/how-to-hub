@@ -126,7 +126,7 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 
 ---
 
-## Lessons Learned
+## 🌟 Lessons Learned
 
 - ⚙️ How to use Next.js Server Actions for DB writes and deletes
 
@@ -165,7 +165,7 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 
 ---
 
-## Credits
+## 🙏 Credits
 
 - Big Thanks to the Instructors for all the support and notes
 - Google fonts: Playfair Display
@@ -190,7 +190,7 @@ Notes: My initial planning is in Planning.md
 
 ---
 
-## Resources
+## 📘 Resources
 
 - [Next.js](https://nextjs.org/docs)
 - [Route Handler](https://nextjs.org/docs/app/api-reference/file-conventions/route)
