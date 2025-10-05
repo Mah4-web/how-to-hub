@@ -50,3 +50,4 @@ Please submit your database schema, as is mentioned in the submission instructio
 
 ## Resources
 
+[Next.js]()
