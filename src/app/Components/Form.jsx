@@ -13,6 +13,8 @@ export default function Form({ postId, onSubmitAction }) {
       <fieldset className="space-y-4">
         <legend className="text-xl font-semibold text-indigo-700 mb-4">Leave a Comment</legend>
 
+        <input type="hidden" name="postId" value={postId} />
+
         <div className="flex flex-col">
           <label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1">
             Your Name:

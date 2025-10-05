@@ -124,6 +124,10 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 
 - ✅ Renamed/structured properly to avoid ambiguity
 
+- ❌ Accessing dynamic route parameters in Next.js App Router without awaiting caused runtime errors.
+- ❌ Error: Route "/posts/[postId]" used params.postId. params should be awaited before using its properties.
+- ✅ Await the params object before destructuring
+
 ---
 
 ## 🌟 Lessons Learned
@@ -186,7 +190,7 @@ Through dynamic routing, server actions, and real database integrations, I learn
 
 If you're looking for a creative, dedicated developer who builds with both heart and strategy — I would love to connect.
 
-Notes: My initial planning is in Planning.md
+Notes: My initial planning is in Planning.md.
 
 ---
 

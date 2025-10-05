@@ -7,9 +7,10 @@ import { revalidatePath } from "next/cache";
 async function getPost(postId) {
     const postRes = await db.query(
     `SELECT article.id, article.title, article.description, article.content, article.image_url, subject.name AS category_name
-     FROM articles article
-     JOIN subjects subject ON a.subject_id = subject.id
-     WHERE article.id = $1`,
+      FROM articles article
+      JOIN subjects subject ON article.subject_id = subject.id
+      WHERE article.id = $1
+`,
     [postId]
     );
 
