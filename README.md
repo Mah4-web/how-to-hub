@@ -170,9 +170,9 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 
 **My successful experiment:**
 
-```<h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
+`<h1` className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
         Welcome to The How-To Hub
-  </h1>```
+  `</h1>`
 
 ✅ This approach fixed the issue I had with titles not resizing well on mobile. The heading now looks great across screen sizes — no custom media queries needed and no need to do in tailwind.config.js. It saved a lot of time.
 
