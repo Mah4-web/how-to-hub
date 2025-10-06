@@ -160,6 +160,34 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 
 ---
 
+## 🧪 Experiment ✅ Responsive Heading (h1) with Tailwind
+
+- In every assignment I try something, experiment with codes. During this assignment, I experimented with how Tailwind handles responsive design, especially for large headings (<h1> elements).
+
+- I discovered that we don’t need to manually add media queries in the tailwind.config.js or in global.css.
+
+- Tailwind provides built-in responsive utility classes like sm:, md:, and lg: which can be applied directly in the className.
+
+**My successful experiment:**
+
+ <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
+        Welcome to The How-To Hub
+      </h1>
+✅ This approach fixed the issue I had with titles not resizing well on mobile. The heading now looks great across screen sizes — no custom media queries needed and no need to do in tailwind.config.js. It saved a lot of time.
+
+### Tailwind Documentation
+- Customizing Screens
+- Customizing the default breakpoints for your project.
+- Configuring custom screens
+- You define your project’s breakpoints in the theme.screens section of your tailwind.config.js file. The keys become your responsive modifiers (like md:text-center), and the values are the min-width where that breakpoint should start.
+
+- The default breakpoints are inspired by common device resolutions:
+![Tailwind](/images/tailwind.png)
+- Overriding the defaults
+- To completely replace the default breakpoints, add your custom screens configuration directly under the theme key:
+![Tailwind](/images/tailwind1.png)
+
+
 ## 👩‍💻 Developer Notes
 
 - I planned carefully to manage scope, especially due to health constraints.
@@ -210,3 +238,11 @@ Notes: My initial planning is in Planning.md.
 - [Images](https://nextjs.org/docs/pages/api-reference/components/image)
 - [Colour combination and gradient](https://color.adobe.com/create/image-gradient)
 - [Tailwind Responsive font](https://v3.tailwindcss.com/docs/screens)
+
+## 🗑️ Note About the Delete Function
+
+This is something I want to highlight:
+- I attempted to implement a delete button with router logic I found in an article.
+Unfortunately, the copied code didn't work as expected, and I wasn’t able to test it due to time and health reasons. I had in my mind that my instructor said we can't have any name for page.js and I added the code in page.js and was getting errors because in the example it was in router.js.
+To avoid breaking the app, I removed the code — but I wanted to mention it here in case the change was noticed during review.
+[Delete](https://stackoverflow.com/questions/77348738/what-is-the-right-way-to-do-a-delete-in-nextjs-13-4-api-response-nextapirespo)
