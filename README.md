@@ -169,7 +169,7 @@ The How-To Hub is a full-stack Next.js application designed to let users create,
 - Tailwind provides built-in responsive utility classes like sm:, md:, and lg: which can be applied directly in the className.
 
 **My successful experiment:**
-
+```jsx
 ` <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 hover:bg-purple-300 p-2 rounded transition">
         Welcome to The How-To Hub
   </h1>`
